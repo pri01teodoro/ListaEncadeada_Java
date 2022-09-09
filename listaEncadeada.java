@@ -8,7 +8,7 @@ public class listaEncadeada{
     
     }
 
-    public listaEncadeada adicionarNoInicio(int valor){
+    public listaEncadeada adicionarNaLista(int valor){
 
         listaEncadeada novo = new listaEncadeada(valor);
 
@@ -20,8 +20,11 @@ public class listaEncadeada{
     public static void main(String[] args) {
         listaEncadeada lista = new listaEncadeada(77);
 
-        lista = lista.adicionarNoInicio(30);
-        lista = lista.adicionarNoInicio(5);
+        lista = lista.adicionarNaLista(15);
+        lista = lista.adicionarNaLista(10);
+        lista = lista.adicionarNaLista(25);
+        lista = lista.adicionarNaLista(30);
+        lista = lista.adicionarNaLista(48);
 
         listaEncadeada atual = lista;
         while(atual != null){
