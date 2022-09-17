@@ -1,37 +1,55 @@
 public class AntigaListaEncadeada{
 
-    public int valor;
+    public int num;
     public AntigaListaEncadeada prox; //referencia ao prox elemento da lista
 
-    public AntigaListaEncadeada(int valor){
-        this.valor = valor;
+    //construtor
+    public AntigaListaEncadeada(int num){
+        this.num = num;
     
     }
 
-    public AntigaListaEncadeada adicionarNaLista(int valor){
+    public AntigaListaEncadeada inicio;
 
-        AntigaListaEncadeada novo = new AntigaListaEncadeada(valor);
+    public void addLista(int num){
 
-        novo.prox = this;
+        AntigaListaEncadeada novo = new AntigaListaEncadeada(num);
 
-        return novo;
+        if(inicio == null){
 
+            inicio = novo;
+
+        }else{
+            AntigaListaEncadeada ultimo = inicio;
+            while (ultimo.prox != null) {
+                ultimo = ultimo.prox;
+                
+            }
+            ultimo.prox = novo;
+        }
+    }
+
+    public void exibir() {
+        AntigaListaEncadeada atual = inicio;
+        while (atual != null) {
+            System.out.println(atual.num);
+            atual = atual.prox;
+        }
     }
     public static void main(String[] args) {
         AntigaListaEncadeada lista = new AntigaListaEncadeada(77);
 
-        lista = lista.adicionarNaLista(15);
-        lista = lista.adicionarNaLista(10);
-        lista = lista.adicionarNaLista(25);
-        lista = lista.adicionarNaLista(30);
-        lista = lista.adicionarNaLista(48);
+        lista.addLista(15);
+        lista.addLista(10);
+        lista.addLista(25);
+        lista.addLista(30);
+        lista.addLista(48);
+        
+        lista.exibir();
+        
 
-        AntigaListaEncadeada atual = lista;
-        while(atual != null){
-            System.out.println(atual.valor);
-            atual = atual.prox;
-        }
-
+        
+       
         
 
     }
